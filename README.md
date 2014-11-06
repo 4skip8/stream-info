@@ -52,14 +52,6 @@ $tpl->set ( '{speedbar}', $tpl->result['speedbar'] );
 ```
 Вставить:
 ```php
-$tpl->set ( '{stream-info}', $tpl->result['streams'] );
-```
-Перед:
-```php
-if ( $dle_module == "showfull" ) {
-```
-Вставить:
-```php
 if( $tpl->result['streams'] != "" ) {
     $tpl->set ( '[stream-info]', "" );
     $tpl->set ( '{stream-info}', $tpl->result['streams'] );
