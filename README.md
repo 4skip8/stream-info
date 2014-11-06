@@ -30,7 +30,7 @@ case "stream-info" :
 	include ENGINE_DIR.'/modules/stream-info.php';
 	break;
 ```
-2. В **engine/engine.php** после:
+1.1 После:
 ```php
 elseif ($do == 'tags') $nam_e = stripslashes($tag);
 ```
@@ -38,7 +38,7 @@ elseif ($do == 'tags') $nam_e = stripslashes($tag);
 ```php
 elseif ($do == 'stream-info') $nam_e = $stream_descr;
 ```
-3. В **index.php** после:
+2. В **index.php** после:
 ```php
 require_once ROOT_DIR . '/engine/init.php';
 ```
@@ -46,7 +46,7 @@ require_once ROOT_DIR . '/engine/init.php';
 ```php
 require_once ENGINE_DIR.'/modules/stream-info-block.php';
 ```
-После:
+2.1 После:
 ```php
 $tpl->set ( '{speedbar}', $tpl->result['speedbar'] );
 ```
