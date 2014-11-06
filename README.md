@@ -18,7 +18,7 @@ STREAM-INFO - это модуль DLE, который позволит орга�
 Далее запустите установщик: **http://вашсайт.ru/stream-install.php**
 **После удачной установки удалите файл stream-install.php**
 
-1. В **engine/engine.php** после:
+1 В **engine/engine.php** после:
 ```php
 case "pm" :
 	include ENGINE_DIR . '/modules/pm.php';
@@ -38,7 +38,7 @@ elseif ($do == 'tags') $nam_e = stripslashes($tag);
 ```php
 elseif ($do == 'stream-info') $nam_e = $stream_descr;
 ```
-2. В **index.php** после:
+2 В **index.php** после:
 ```php
 require_once ROOT_DIR . '/engine/init.php';
 ```
