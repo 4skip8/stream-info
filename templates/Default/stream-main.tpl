@@ -11,6 +11,6 @@
 		<span class="argmore"><a href="/stream/{streamer}"><b>Подробнее</b></a></span>
 		<span class="argviews"><span title="Зрителей: {viewers}"><b>{viewers}</b></span></span>
 		<div class="mlarrow">&nbsp;</div>
-        <p class="lcol argcat">Стример: {streamer} | Статус: {status} | Игра: {games} m</p>
+        <p class="lcol argcat">Стример: {streamer} | Статус: {status}</p>
 	</div>
 </div>
