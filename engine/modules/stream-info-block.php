@@ -41,7 +41,7 @@ if ($stream_config['allow_stream'] == 'yes'){// включен модуль или нет
     $stream_count = count($stream_list);
     $out = 0;
 
-    if($stream_count > 1) {
+    if($stream_count > 0) {
             if($config['allow_cache'] != 'yes') {
                     $config['allow_cache'] = 'yes';
                     $cache = true;

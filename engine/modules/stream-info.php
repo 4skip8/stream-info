@@ -251,7 +251,9 @@ if($full_stream) {
 								$tpl->set('{player}', '<div style="width: '.$stream_config['width'].'px;height: '.$stream_config['height'].'px;">'.$stream_goodgame->stream->embed.'</div>');
 							} else {
 								$tpl->set('{player}', 'Вывод плеера отключено в настройках!');
-							}elseif($stream_goodgame->stream->status == 'Dead') {
+							}
+							$tpl->compile('content');
+						}elseif($stream_goodgame->stream->status == 'Dead') {
 							$tpl->set('{title}', $info_stream['title']);
 							$tpl->set('{streamer}', $info_stream['login']);
 							$tpl->set('{streampic}', $info_stream['pic']);
@@ -260,7 +262,6 @@ if($full_stream) {
 							$tpl->set('{viewers}', '0');
 							$tpl->compile('content');
 						}
-							$tpl->compile('content');
 						}
 						break;
 				}
@@ -272,5 +273,4 @@ if($full_stream) {
 			$tpl->clear();
 		}
 	}
-}
 }
