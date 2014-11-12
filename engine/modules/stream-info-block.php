@@ -14,11 +14,11 @@
 -----------------------------------------------------
  Copyright (c) 2014
 ==============================================
- Äàííûé êîä çàùèùåí àâòîğñêèìè ïğàâàìè
+ Ğ”Ğ°Ğ½Ğ½Ñ‹Ğ¹ ĞºĞ¾Ğ´ Ğ·Ğ°Ñ‰Ğ¸Ñ‰ĞµĞ½ Ğ°Ğ²Ñ‚Ğ¾Ñ€ÑĞºĞ¸Ğ¼Ğ¸ Ğ¿Ñ€Ğ°Ğ²Ğ°Ğ¼Ğ¸
 ==============================================
- Ôàéë: /engine/modules/stream-info-block.php
+ Ğ¤Ğ°Ğ¹Ğ»: /engine/modules/stream-info-block.php
 -----------------------------------------------------
- Íàçíà÷åíèå: Âûâîä áëîêà ñòğèìîâ íà ãëàâíîé ñòğàíèöå
+ ĞĞ°Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ: Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ±Ğ»Ğ¾ĞºĞ° ÑÑ‚Ñ€Ğ¸Ğ¼Ğ¾Ğ² Ğ½Ğ° Ğ³Ğ»Ğ°Ğ²Ğ½Ğ¾Ğ¹ ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ†Ğµ
 ==============================================*/
 
 if(!defined('DATALIFEENGINE'))
@@ -33,15 +33,15 @@ require_once(ENGINE_DIR.'/api/api.class.php');
 $parse = new ParseFilter();
 
 /*=====================================
-ÁËÎÊ ÄËß ÂÛÂÎÄÀ ÍÀ ÃËÀÂÍÓŞ ÑÒĞÀÍÈÖÓ
+Ğ‘Ğ›ĞĞš Ğ”Ğ›Ğ¯ Ğ’Ğ«Ğ’ĞĞ”Ğ ĞĞ Ğ“Ğ›ĞĞ’ĞĞ£Ğ® Ğ¡Ğ¢Ğ ĞĞĞ˜Ğ¦Ğ£
 =====================================*/
-if ($stream_config['allow_stream'] == 'yes'){// âêëş÷åí ìîäóëü èëè íåò
+if ($stream_config['allow_stream'] == 'yes'){// Ğ²ĞºĞ»ÑÑ‡ĞµĞ½ Ğ¼Ğ¾Ğ´ÑƒĞ»ÑŒ Ğ¸Ğ»Ğ¸ Ğ½ĞµÑ‚
 
     $stream_list = $db->super_query( "SELECT * FROM " . PREFIX . "_streams ORDER BY id", true );
     $stream_count = count($stream_list);
     $out = 0;
 
-    if($stream_count > 1) {
+    if($stream_count > 0) {
             if($config['allow_cache'] != 'yes') {
                     $config['allow_cache'] = 'yes';
                     $cache = true;
@@ -55,7 +55,7 @@ if ($stream_config['allow_stream'] == 'yes'){// âêëş÷åí ìîäóëü èëè íåò
                             if($out != $stream_config['blocklimit']){
                                     $info_stream = $stream_list[$i];
                                     switch($info_stream['service']) {
-                                            /*********************ÑÏÈÑÎÊ ÑÒĞÈÌÎÂ ÍÀ ÃËÀÂÍÓŞ ÑÒĞÀÍÈÖÓ ÂÛÂÎÄ ÁËÎÊÀ******************/
+                                            /*********************Ğ¡ĞŸĞ˜Ğ¡ĞĞš Ğ¡Ğ¢Ğ Ğ˜ĞœĞĞ’ ĞĞ Ğ“Ğ›ĞĞ’ĞĞ£Ğ® Ğ¡Ğ¢Ğ ĞĞĞ˜Ğ¦Ğ£ Ğ’Ğ«Ğ’ĞĞ” Ğ‘Ğ›ĞĞšĞ******************/
                                             case 'twitch':
                                                     $stream_twitch = gettwitch($info_stream['login']);
 
@@ -70,7 +70,7 @@ if ($stream_config['allow_stream'] == 'yes'){// âêëş÷åí ìîäóëü èëè íåò
                                                             if($stream_config['showplayer'] == 'yes') {
                                                                     $tpl->set('{player}', '<object type="application/x-shockwave-flash" height="'.$stream_config['height'].'" width="'.$stream_config['width'].'" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel='.$info_stream['login'].'" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel='.$info_stream['login'].'&auto_play=true&start_volume=25" /></object>');
                                                             } else {
-                                                                    $tpl->set('{player}', 'Âûâîä ïëååğà îòêëş÷åíî â íàñòğîéêàõ!');
+                                                                    $tpl->set('{player}', 'Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ¿Ğ»ĞµĞµÑ€Ğ° Ğ¾Ñ‚ĞºĞ»ÑÑ‡ĞµĞ½Ğ¾ Ğ² Ğ½Ğ°ÑÑ‚Ñ€Ğ¾Ğ¹ĞºĞ°Ñ…!');
                                                             }
                                                             $tpl->compile('streams');
                                                             $out++;
@@ -91,7 +91,7 @@ if ($stream_config['allow_stream'] == 'yes'){// âêëş÷åí ìîäóëü èëè íåò
                                                             if($stream_config['showplayer'] == 'yes') {
                                                                     $tpl->set('{player}', '<iframe src="http://api.cybergame.tv/p/embed.php?c='.$info_stream['login'].'&w='.$stream_config['width'].'&h='.$stream_config['height'].'&type=embed" width="'.$stream_config['width'].'" height="'.$stream_config['height'].'" frameborder="0"></iframe>');
                                                             } else {
-                                                                    $tpl->set('{player}', 'Âûâîä ïëååğà îòêëş÷åíî â íàñòğîéêàõ!');
+                                                                    $tpl->set('{player}', 'Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ¿Ğ»ĞµĞµÑ€Ğ° Ğ¾Ñ‚ĞºĞ»ÑÑ‡ĞµĞ½Ğ¾ Ğ² Ğ½Ğ°ÑÑ‚Ñ€Ğ¾Ğ¹ĞºĞ°Ñ…!');
                                                             }
                                                             $tpl->compile('streams');
                                                             $out++;
@@ -112,7 +112,7 @@ if ($stream_config['allow_stream'] == 'yes'){// âêëş÷åí ìîäóëü èëè íåò
                                                             if($stream_config['showplayer'] == 'yes') {
                                                                     $tpl->set('{player}', '<div style="width: '.$stream_config['width'].'px;height: '.$stream_config['height'].'px;">'.$stream_goodgame->stream->embed.'</div>');
                                                             } else {
-                                                                    $tpl->set('{player}', 'Âûâîä ïëååğà îòêëş÷åíî â íàñòğîéêàõ!');
+                                                                    $tpl->set('{player}', 'Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ¿Ğ»ĞµĞµÑ€Ğ° Ğ¾Ñ‚ĞºĞ»ÑÑ‡ĞµĞ½Ğ¾ Ğ² Ğ½Ğ°ÑÑ‚Ñ€Ğ¾Ğ¹ĞºĞ°Ñ…!');
                                                             }
                                                             $tpl->compile('streams');
                                                             $out++;
