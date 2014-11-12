@@ -14,12 +14,12 @@
 ----------------------------------------------------------
  Copyright (c) 2014
 ==========================================================
- Данный код защищен авторскими правами
+ Р”Р°РЅРЅС‹Р№ РєРѕРґ Р·Р°С‰РёС‰РµРЅ Р°РІС‚РѕСЂСЃРєРёРјРё РїСЂР°РІР°РјРё
 ==========================================================
- Файл: /engine/modules/stream-info.php
+ Р¤Р°Р№Р»: /engine/modules/stream-info.php
 ----------------------------------------------------------
- Назначение: Вывод блока стримов всех стримов на ?do=stream
- Назначение: Просмотр стрима определенного юзера
+ РќР°Р·РЅР°С‡РµРЅРёРµ: Р’С‹РІРѕРґ Р±Р»РѕРєР° СЃС‚СЂРёРјРѕРІ РІСЃРµС… СЃС‚СЂРёРјРѕРІ РЅР° ?do=stream
+ РќР°Р·РЅР°С‡РµРЅРёРµ: РџСЂРѕСЃРјРѕС‚СЂ СЃС‚СЂРёРјР° РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ СЋР·РµСЂР°
 ==========================================================*/
 
 if(!defined('DATALIFEENGINE'))
@@ -37,7 +37,7 @@ $full_stream = $_REQUEST['stream'];
 $work = TRUE;
 
 /*==============================
-Страница трансляции пользователя
+РЎС‚СЂР°РЅРёС†Р° С‚СЂР°РЅСЃР»СЏС†РёРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 ==============================*/
 
 if ($stream_config['allow_stream'] == 'yes'){
@@ -52,15 +52,15 @@ if($full_stream) {
 		$metatags['keywords'] = stripslashes($stream_config['stream_keywords']);
 		$metatags['description'] = stripslashes( strip_tags($stream_config['stream_desc']));
 	}
-	if ($stream_config['stream_title']) $metatags['header_title'] = $info_stream['title'] . " &raquo; Пользователь ".$full_stream;
+	if ($stream_config['stream_title']) $metatags['header_title'] = $info_stream['title'] . " &raquo; РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ ".$full_stream;
 	/*SEO MODULE*/
 	$tpl->load_template('stream-full.tpl');
 	
 	/* FIX v1.01 */
 	if($full_stream != $info_stream['login']) {
 		$tpl->load_template( 'info.tpl' );
-		$tpl->set( '{error}', 'Прямая трансляция не найдена' );
-		$tpl->set( '{title}', 'Ошибка' );
+		$tpl->set( '{error}', 'РџСЂСЏРјР°СЏ С‚СЂР°РЅСЃР»СЏС†РёСЏ РЅРµ РЅР°Р№РґРµРЅР°' );
+		$tpl->set( '{title}', 'РћС€РёР±РєР°' );
 		$tpl->compile('info');
 		$tpl->clear();
 		$work = FALSE;
@@ -148,7 +148,7 @@ if($full_stream) {
 	}
 } else {
 	/*==============================================
-	 Список всех трансляций которые добавлены в базу
+	 РЎРїРёСЃРѕРє РІСЃРµС… С‚СЂР°РЅСЃР»СЏС†РёР№ РєРѕС‚РѕСЂС‹Рµ РґРѕР±Р°РІР»РµРЅС‹ РІ Р±Р°Р·Сѓ
 	===============================================*/	
 	/*SEO MODULE*/
 	if( $stream_config['stream_keywords'] == '' AND $stream_config['stream_desc'] == '' ) create_keywords( 'stream-info-main' );
@@ -173,15 +173,15 @@ if($full_stream) {
 	
 		if($stream_count < 1) {
 			$tpl->load_template( 'info.tpl' );
-			$tpl->set( '{error}', 'Прямых трансляций не найдено ' );
-			$tpl->set( '{title}', 'Внимание' );
+			$tpl->set( '{error}', 'РџСЂСЏРјС‹С… С‚СЂР°РЅСЃР»СЏС†РёР№ РЅРµ РЅР°Р№РґРµРЅРѕ ' );
+			$tpl->set( '{title}', 'Р’РЅРёРјР°РЅРёРµ' );
 			$tpl->compile('info');
 			$tpl->clear();
 		} else {
 			$tpl->load_template('stream-all.tpl');
 			
 			/*============================================
-			Блок вывода всех стримов на странице ?do=stream
+			Р‘Р»РѕРє РІС‹РІРѕРґР° РІСЃРµС… СЃС‚СЂРёРјРѕРІ РЅР° СЃС‚СЂР°РЅРёС†Рµ ?do=stream
 			=============================================*/
 			for($i = 0; $i < $stream_count; $i++) {
 				$info_stream = $stream_list[$i];
@@ -198,7 +198,7 @@ if($full_stream) {
 							if($stream_config['showplayer'] == 'yes') {
 								$tpl->set('{player}', '<object type="application/x-shockwave-flash" height="'.$stream_config['height'].'" width="'.$stream_config['width'].'" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel='.$info_stream['login'].'" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel='.$info_stream['login'].'&auto_play=false&start_volume=25" /></object>');
 							} else {
-								$tpl->set('{player}', 'Вывод плеера отключено в настройках!');
+								$tpl->set('{player}', 'Р’С‹РІРѕРґ РїР»РµРµСЂР° РѕС‚РєР»СЋС‡РµРЅРѕ РІ РЅР°СЃС‚СЂРѕР№РєР°С…!');
 							}
 							$tpl->compile('content');
 						}elseif($stream_twitch == NULL) {
@@ -208,8 +208,8 @@ if($full_stream) {
 							$tpl->set('{description}', $parse->BB_Parse($info_stream['description']));
 							$tpl->set('{viewers}', '0');
 							$tpl->set('{status}', $stream_config['offline']);
-							$tpl->compile('content');
-						}	
+						}
+						$tpl->compile('content');
 						break;
 					case 'cybergame':
 						$stream_cybergame = getcybergame($info_stream['login']);
@@ -224,9 +224,8 @@ if($full_stream) {
 							if($stream_config['showplayer'] == 'yes') {
 								$tpl->set('{player}', '<iframe src="http://api.cybergame.tv/p/embed.php?c='.$info_stream['login'].'&w='.$stream_config['width'].'&h='.$stream_config['height'].'&type=embed" width="'.$stream_config['width'].'" height="'.$stream_config['height'].'" frameborder="0"></iframe>');
 							} else {
-								$tpl->set('{player}', 'Вывод плеера отключено в настройках!');
+								$tpl->set('{player}', 'Р’С‹РІРѕРґ РїР»РµРµСЂР° РѕС‚РєР»СЋС‡РµРЅРѕ РІ РЅР°СЃС‚СЂРѕР№РєР°С…!');
 							}
-							$tpl->compile('content');
 						}elseif($stream_cybergame['online'] == '0') {
 							$tpl->set('{title}', $info_stream['title']);
 							$tpl->set('{streamer}', $info_stream['login']);
@@ -234,8 +233,8 @@ if($full_stream) {
 							$tpl->set('{description}', $parse->BB_Parse($info_stream['description']));
 							$tpl->set('{status}', $stream_config['offline']);
 							$tpl->set('{viewers}', '0');
-							$tpl->compile('content');
 						}
+						$tpl->compile('content');
 						break;
 					case 'goodgame':
 						$stream_goodgame = getgoodgame($info_stream['login']);
@@ -250,17 +249,17 @@ if($full_stream) {
 							if($stream_config['showplayer'] == 'yes') {
 								$tpl->set('{player}', '<div style="width: '.$stream_config['width'].'px;height: '.$stream_config['height'].'px;">'.$stream_goodgame->stream->embed.'</div>');
 							} else {
-								$tpl->set('{player}', 'Вывод плеера отключено в настройках!');
-							}elseif($stream_goodgame->stream->status == 'Dead') {
+								$tpl->set('{player}', 'Р’С‹РІРѕРґ РїР»РµРµСЂР° РѕС‚РєР»СЋС‡РµРЅРѕ РІ РЅР°СЃС‚СЂРѕР№РєР°С…!');
+							}							
+						}elseif($stream_goodgame->stream->status == 'Dead') {
 							$tpl->set('{title}', $info_stream['title']);
 							$tpl->set('{streamer}', $info_stream['login']);
 							$tpl->set('{streampic}', $info_stream['pic']);
 							$tpl->set('{description}', $parse->BB_Parse($info_stream['description']));
 							$tpl->set('{status}', $stream_config['offline']);
 							$tpl->set('{viewers}', '0');
-							$tpl->compile('content');
 						}
-							$tpl->compile('content');
+						$tpl->compile('content');
 						}
 						break;
 				}
@@ -272,5 +271,4 @@ if($full_stream) {
 			$tpl->clear();
 		}
 	}
-}
 }
