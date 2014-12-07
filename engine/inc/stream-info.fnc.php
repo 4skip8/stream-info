@@ -259,7 +259,7 @@ HTML;
 							<th colspan="5" valign="top">
 								<div style="margin-bottom:5px; margin-top:5px; text-align: right;">
 								<select name="action">
-									<option value="">-- Действие --</option>
+									<option value="">--Действие--</option>
 									<option value="dodelete">Удалить</option>
 								</select>
 								<input class="btn btn-warning btn-mini" type="submit" value="Выполнить">
