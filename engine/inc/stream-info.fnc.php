@@ -14,11 +14,11 @@
 -----------------------------------------------------
  Copyright (c) 2014
 ===============================================
- Данный код защищен авторскими правами
+ Г„Г Г­Г­Г»Г© ГЄГ®Г¤ Г§Г Г№ГЁГ№ГҐГ­ Г ГўГІГ®Г°Г±ГЄГЁГ¬ГЁ ГЇГ°Г ГўГ Г¬ГЁ
 ===============================================
- Файл: /engine/inc/stream-info.fnc.php
+ Г”Г Г©Г«: /engine/inc/stream-info.fnc.php
 -----------------------------------------------------
- Назначение: Основные функции админпанели и модуля
+ ГЌГ Г§Г­Г Г·ГҐГ­ГЁГҐ: ГЋГ±Г­Г®ГўГ­Г»ГҐ ГґГіГ­ГЄГ¶ГЁГЁ Г Г¤Г¬ГЁГ­ГЇГ Г­ГҐГ«ГЁ ГЁ Г¬Г®Г¤ГіГ«Гї
 ===============================================*/
 if (!defined('DATALIFEENGINE')) {
     die("Hacking attempt!");
@@ -36,7 +36,7 @@ echo <<<HTML
 HTML;
 }
 /*==========================
-HTML шаблон Навигации и меню
+HTML ГёГ ГЎГ«Г®Г­ ГЌГ ГўГЁГЈГ Г¶ГЁГЁ ГЁ Г¬ГҐГ­Гѕ
 ============================*/
 function echomenu() {
 echo<<<HTML
@@ -55,16 +55,16 @@ echo<<<HTML
 		<table width="100%">
     <tr>
         <td bgcolor="#EFEFEF" height="29" style="padding-left:10px;">
-          <div class="navigation">Навигация</div></td>
+          <div class="navigation">ГЌГ ГўГЁГЈГ Г¶ГЁГї</div></td>
     </tr>
 </table>
 <div class="unterline"></div>
 <table style="text-align:center;" width="100%" height="35px">
 <tbody><tr style="vertical-align:middle;">
- <td class="tableborder"><a href="$PHP_SELF?mod=stream-info"><img title="Общая информация" src="engine/skins/images/stream-module.png" border="0"></a>
- </td><td class="tableborder"><a href="$PHP_SELF?mod=stream-info&action=add"><img title="Добавить трансляцию" src="engine/skins/images/stream-add.png" border="0"></a>
- </td><td class="tableborder"><a href="$PHP_SELF?mod=stream-info&action=edit"><img title="Редактирование трансляций" src="engine/skins/images/stream-edit.png" border="0"></a>
- </td><td class="tableborder"><a href="$PHP_SELF?mod=stream-info&action=settings"><img title="Настройки" src="engine/skins/images/stream-option.png" border="0"></a>
+ <td class="tableborder"><a href="$PHP_SELF?mod=stream-info"><img title="ГЋГЎГ№Г Гї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГї" src="engine/skins/images/stream-module.png" border="0"></a>
+ </td><td class="tableborder"><a href="$PHP_SELF?mod=stream-info&action=add"><img title="Г„Г®ГЎГ ГўГЁГІГј ГІГ°Г Г­Г±Г«ГїГ¶ГЁГѕ" src="engine/skins/images/stream-add.png" border="0"></a>
+ </td><td class="tableborder"><a href="$PHP_SELF?mod=stream-info&action=edit"><img title="ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГҐ ГІГ°Г Г­Г±Г«ГїГ¶ГЁГ©" src="engine/skins/images/stream-edit.png" border="0"></a>
+ </td><td class="tableborder"><a href="$PHP_SELF?mod=stream-info&action=settings"><img title="ГЌГ Г±ГІГ°Г®Г©ГЄГЁ" src="engine/skins/images/stream-option.png" border="0"></a>
  </td></tr>
 </tbody></table>
 </td>
@@ -83,7 +83,7 @@ echo<<<HTML
 HTML;
 }
 /*==============
-Открытие таблицы
+ГЋГІГЄГ°Г»ГІГЁГҐ ГІГ ГЎГ«ГЁГ¶Г»
 ===============*/
 function opentable() {
 echo <<<HTML
@@ -99,7 +99,7 @@ echo <<<HTML
 HTML;
 }
 /*==============
-Закрытие таблицы
+Г‡Г ГЄГ°Г»ГІГЁГҐ ГІГ ГЎГ«ГЁГ¶Г»
 ===============*/
 function closetable() {
 echo <<<HTML
@@ -115,9 +115,9 @@ echo <<<HTML
 HTML;
 }
 /*==============================================
-Сообщение после выполнения определенной операции
+Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ ГЇГ®Г±Г«ГҐ ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г­Г®Г© Г®ГЇГҐГ°Г Г¶ГЁГЁ
 ------------------------------------------------
-Аналог дле-шной msg, только урезанная версия
+ГЂГ­Г Г«Г®ГЈ Г¤Г«ГҐ-ГёГ­Г®Г© msg, ГІГ®Г«ГјГЄГ® ГіГ°ГҐГ§Г Г­Г­Г Гї ГўГҐГ°Г±ГЁГї
 ===============================================*/
 function streamMsg($title, $text, $back = FALSE) {
 	global $lang;	
@@ -162,7 +162,7 @@ HTML;
 	die();
 }
 /*============================
-Вставка inputа
+Г‚Г±ГІГ ГўГЄГ  inputГ 
 ==============================*/
 function showRow($title = "", $description = "", $field = "", $flag = true) {
 	echo "<tr>
@@ -178,7 +178,7 @@ function showRow($title = "", $description = "", $field = "", $flag = true) {
 	}
 }
 /*============================================
-Генерация списка стримов которые сейчас online
+ГѓГҐГ­ГҐГ°Г Г¶ГЁГї Г±ГЇГЁГ±ГЄГ  Г±ГІГ°ГЁГ¬Г®Гў ГЄГ®ГІГ®Г°Г»ГҐ Г±ГҐГ©Г·Г Г± online
 =============================================*/
 function streamList($streams){
 echo<<<HTML
@@ -190,10 +190,10 @@ echo<<<HTML
 				<table width="100%" id="newslist">
 					<tbody>
 						<tr class="thead">
-							<th>&nbsp;&nbsp;Заголовок</th>
-							<th width="210">Автор</th>
-							<th width="120">Сервис</th>
-							<!-- <th width="120">Транслирует?</th> -->
+							<th>&nbsp;&nbsp;Г‡Г ГЈГ®Г«Г®ГўГ®ГЄ</th>
+							<th width="210">ГЂГўГІГ®Г°</th>
+							<th width="120">Г‘ГҐГ°ГўГЁГ±</th>
+							<!-- <th width="120">Г’Г°Г Г­Г±Г«ГЁГ°ГіГҐГІ?</th> -->
 HTML;
 						if ($_REQUEST['action'] == 'edit'){
 						echo '<th width="10" style="text-align: center;"><input id="all" name="all" value="" type="checkbox"></th>';
@@ -215,7 +215,7 @@ HTML;
 		echo<<<HTML
 			<tr class="">
 				<td class="list" style="padding:4px;">
-					{$stream['date']} <a title="Редактировать {$stream['title']}" class="list" href="{$PHP_SELF}?mod=stream-info&action=edit&id={$stream['id']}">{$stream['title']}</a>
+					{$stream['date']} <a title="ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј {$stream['title']}" class="list" href="{$PHP_SELF}?mod=stream-info&action=edit&id={$stream['id']}">{$stream['title']}</a>
 				</td>
 				<td class="list">
 					<a class="list">{$stream['login']}</a>
@@ -230,7 +230,7 @@ HTML;
 				if ($_REQUEST['action'] == 'edit'){
 				echo <<<HTML
 				<td align="center" width="80px">
-					<input name="selected_stream[]" value="{$stream['id']}" type="checkbox"><!-- <input class="btn btn-danger btn-mini" type="button" value="Удалить"> -->
+					<input name="selected_stream[]" value="{$stream['id']}" type="checkbox"><!-- <input class="btn btn-danger btn-mini" type="button" value="Г“Г¤Г Г«ГЁГІГј"> -->
 				</td>
 HTML;
 				}
@@ -259,10 +259,10 @@ HTML;
 							<th colspan="5" valign="top">
 								<div style="margin-bottom:5px; margin-top:5px; text-align: right;">
 								<select name="action">
-									<option value="">-- Действие --</option>
-									<option value="dodeleten">Удалить</option>
+									<option value="">-- Г„ГҐГ©Г±ГІГўГЁГҐ --</option>
+									<option value="dodelete">Г“Г¤Г Г«ГЁГІГј</option>
 								</select>
-								<input class="btn btn-warning btn-mini" type="submit" value="Выполнить">
+								<input class="btn btn-warning btn-mini" type="submit" value="Г‚Г»ГЇГ®Г«Г­ГЁГІГј">
 							</div>
 							</th>
 						</tr>
@@ -279,50 +279,50 @@ HTML;
 HTML;
 }
 /*============================
-HTML шаблон настроек модуля
+HTML ГёГ ГЎГ«Г®Г­ Г­Г Г±ГІГ°Г®ГҐГЄ Г¬Г®Г¤ГіГ«Гї
 ------------------------------
-@stream_config - конфиг модуля
+@stream_config - ГЄГ®Г­ГґГЁГЈ Г¬Г®Г¤ГіГ«Гї
 ============================*/
 function settings($stream_config){
 
 if($stream_config['showplayer'] == 'yes') {
-		$option1 = "Да";
-		$option2 = "Нет";
+		$option1 = "Г„Г ";
+		$option2 = "ГЌГҐГІ";
 		$option3 = "no";
 	} else {
-		$option1 = "Нет";
-		$option2 = "Да";
+		$option1 = "ГЌГҐГІ";
+		$option2 = "Г„Г ";
 		$option3 = "yes";
 	}
 	if($stream_config['cache_allow'] == 'yes') {
-		$option4 = "Да";
-		$option5 = "Нет";
+		$option4 = "Г„Г ";
+		$option5 = "ГЌГҐГІ";
 		$option6 = "no";
 	} else {
-		$option4 = "Нет";
-		$option5 = "Да";
+		$option4 = "ГЌГҐГІ";
+		$option5 = "Г„Г ";
 		$option6 = "yes";
 	}
 	if($stream_config['allow_stream'] == 'yes') {
-		$option7 = "Да";
-		$option8 = "Нет";
+		$option7 = "Г„Г ";
+		$option8 = "ГЌГҐГІ";
 		$option9 = "no";
 	} else {
-		$option7 = "Нет";
-		$option8 = "Да";
+		$option7 = "ГЌГҐГІ";
+		$option8 = "Г„Г ";
 		$option9 = "yes";
 	}
 	echomenu();
 	opentable();
-	tableheader("Настройки модуля");
+	tableheader("ГЌГ Г±ГІГ°Г®Г©ГЄГЁ Г¬Г®Г¤ГіГ«Гї");
 	echo<<<HTML
 <form action="" method="POST">
 	<table width="100%">
 		<tbody>
                         <tr>
 				<td style="padding:4px" class="option">
-					<div style="padding-bottom:5px;"><b>Включить модуль?</b></div>
-					<div class="small">Данная опция позволит показывать стримы на сайте.</div>
+					<div style="padding-bottom:5px;"><b>Г‚ГЄГ«ГѕГ·ГЁГІГј Г¬Г®Г¤ГіГ«Гј?</b></div>
+					<div class="small">Г„Г Г­Г­Г Гї Г®ГЇГ¶ГЁГї ГЇГ®Г§ГўГ®Г«ГЁГІ ГЇГ®ГЄГ Г§Г»ГўГ ГІГј Г±ГІГ°ГЁГ¬Г» Г­Г  Г±Г Г©ГІГҐ.</div>
 				</td>
 				<td width="400" align="middle">
 					<select name="savecfg[allow_stream]">
@@ -336,8 +336,8 @@ if($stream_config['showplayer'] == 'yes') {
 				</tr>
 			<tr>
 				<td style="padding:4px" class="option">
-					<div style="padding-bottom:5px;"><b>Выводить плеер в краткой информации о трансляции</b></div>
-					<div class="small">Внимание! Использование этой функции нагружает браузер.</div>
+					<div style="padding-bottom:5px;"><b>Г‚Г»ГўГ®Г¤ГЁГІГј ГЇГ«ГҐГҐГ° Гў ГЄГ°Г ГІГЄГ®Г© ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГІГ°Г Г­Г±Г«ГїГ¶ГЁГЁ</b></div>
+					<div class="small">Г‚Г­ГЁГ¬Г Г­ГЁГҐ! Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЅГІГ®Г© ГґГіГ­ГЄГ¶ГЁГЁ Г­Г ГЈГ°ГіГ¦Г ГҐГІ ГЎГ°Г ГіГ§ГҐГ°.</div>
 				</td>
 				<td width="400" align="middle">
 					<select name="savecfg[showplayer]">
@@ -351,8 +351,8 @@ if($stream_config['showplayer'] == 'yes') {
 			</tr>
 			<tr>
 				<td style="padding:4px" class="option">
-					<div style="padding-bottom:5px;"><b>Включить кэширование списка трансляций</b></div>
-					<div class="small">Заметно ускоряет вывод списка трансляций.</div>
+					<div style="padding-bottom:5px;"><b>Г‚ГЄГ«ГѕГ·ГЁГІГј ГЄГЅГёГЁГ°Г®ГўГ Г­ГЁГҐ Г±ГЇГЁГ±ГЄГ  ГІГ°Г Г­Г±Г«ГїГ¶ГЁГ©</b></div>
+					<div class="small">Г‡Г Г¬ГҐГІГ­Г® ГіГ±ГЄГ®Г°ГїГҐГІ ГўГ»ГўГ®Г¤ Г±ГЇГЁГ±ГЄГ  ГІГ°Г Г­Г±Г«ГїГ¶ГЁГ©.</div>
 				</td>
 				<td width="400" align="middle">
 					<select name="savecfg[cache_allow]">
@@ -365,19 +365,19 @@ if($stream_config['showplayer'] == 'yes') {
 				<td background="engine/skins/images/mline.gif" height="1" colspan="2"></td>
 			</tr>
 HTML;
-showRow("Время жизни кэша","В минутах.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[cachelife]\" value=\"{$stream_config['cachelife']}\" size=\"25\">");
-showRow("Количество трансляций в блоке","Укажите количество трансляций в блоке '{stream-info}'.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[blocklimit]\" value=\"{$stream_config['blocklimit']}\" size=\"25\">");
-showRow("Ширина плеера","В пикселях.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[width]\" value=\"{$stream_config['width']}\" size=\"25\">");
-showRow("Высота плеера","В пикселях.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[height]\" value=\"{$stream_config['height']}\" size=\"25\">");
-showRow("Статус онлайн","Сообщение для вывода статуса.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[online]\" value=\"{$stream_config['online']}\" size=\"25\">");
-showRow("Статус оффлайн","Сообщение для вывода статуса.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[offline]\" value=\"{$stream_config['offline']}\" size=\"25\">");
-showRow("Заглушка для плеера","Если трансляция оффлайн, показывается заглушка (используйте BB-коды).","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[zagluska]\" value=\"{$stream_config['zagluska']}\" size=\"25\">");
-showRow("Время жизни кэша","В минутах","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[cachelife]\" value=\"{$stream_config['cachelife']}\" size=\"25\">");
-showRow("Название(Тайтл) модуля","Тайтл модуля который будет отображаться в браузере","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[stream_title]\" value=\"{$stream_config['stream_title']}\" size=\"25\">");
-showRow("Описание (Description) модуля","Краткое описание, не более 200 символов.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[stream_desc]\" value=\"{$stream_config['stream_desc']}\" size=\"25\">");
-showRow("Ключевые слова (Keywords) для модуля","Введите через запятую основные ключевые слова.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[stream_keywords]\" value=\"{$stream_config['stream_keywords']}\" size=\"25\">");
+showRow("Г‚Г°ГҐГ¬Гї Г¦ГЁГ§Г­ГЁ ГЄГЅГёГ ","Г‚ Г¬ГЁГ­ГіГІГ Гµ.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[cachelife]\" value=\"{$stream_config['cachelife']}\" size=\"25\">");
+showRow("ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГІГ°Г Г­Г±Г«ГїГ¶ГЁГ© Гў ГЎГ«Г®ГЄГҐ","Г“ГЄГ Г¦ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГІГ°Г Г­Г±Г«ГїГ¶ГЁГ© Гў ГЎГ«Г®ГЄГҐ '{stream-info}'.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[blocklimit]\" value=\"{$stream_config['blocklimit']}\" size=\"25\">");
+showRow("ГГЁГ°ГЁГ­Г  ГЇГ«ГҐГҐГ°Г ","Г‚ ГЇГЁГЄГ±ГҐГ«ГїГµ.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[width]\" value=\"{$stream_config['width']}\" size=\"25\">");
+showRow("Г‚Г»Г±Г®ГІГ  ГЇГ«ГҐГҐГ°Г ","Г‚ ГЇГЁГЄГ±ГҐГ«ГїГµ.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[height]\" value=\"{$stream_config['height']}\" size=\"25\">");
+showRow("Г‘ГІГ ГІГіГ± Г®Г­Г«Г Г©Г­","Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ Г¤Г«Гї ГўГ»ГўГ®Г¤Г  Г±ГІГ ГІГіГ±Г .","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[online]\" value=\"{$stream_config['online']}\" size=\"25\">");
+showRow("Г‘ГІГ ГІГіГ± Г®ГґГґГ«Г Г©Г­","Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ Г¤Г«Гї ГўГ»ГўГ®Г¤Г  Г±ГІГ ГІГіГ±Г .","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[offline]\" value=\"{$stream_config['offline']}\" size=\"25\">");
+showRow("Г‡Г ГЈГ«ГіГёГЄГ  Г¤Г«Гї ГЇГ«ГҐГҐГ°Г ","Г…Г±Г«ГЁ ГІГ°Г Г­Г±Г«ГїГ¶ГЁГї Г®ГґГґГ«Г Г©Г­, ГЇГ®ГЄГ Г§Г»ГўГ ГҐГІГ±Гї Г§Г ГЈГ«ГіГёГЄГ  (ГЁГ±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ BB-ГЄГ®Г¤Г»).","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[zagluska]\" value=\"{$stream_config['zagluska']}\" size=\"25\">");
+showRow("Г‚Г°ГҐГ¬Гї Г¦ГЁГ§Г­ГЁ ГЄГЅГёГ ","Г‚ Г¬ГЁГ­ГіГІГ Гµ","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[cachelife]\" value=\"{$stream_config['cachelife']}\" size=\"25\">");
+showRow("ГЌГ Г§ГўГ Г­ГЁГҐ(Г’Г Г©ГІГ«) Г¬Г®Г¤ГіГ«Гї","Г’Г Г©ГІГ« Г¬Г®Г¤ГіГ«Гї ГЄГ®ГІГ®Г°Г»Г© ГЎГіГ¤ГҐГІ Г®ГІГ®ГЎГ°Г Г¦Г ГІГјГ±Гї Гў ГЎГ°Г ГіГ§ГҐГ°ГҐ","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[stream_title]\" value=\"{$stream_config['stream_title']}\" size=\"25\">");
+showRow("ГЋГЇГЁГ±Г Г­ГЁГҐ (Description) Г¬Г®Г¤ГіГ«Гї","ГЉГ°Г ГІГЄГ®ГҐ Г®ГЇГЁГ±Г Г­ГЁГҐ, Г­ГҐ ГЎГ®Г«ГҐГҐ 200 Г±ГЁГ¬ГўГ®Г«Г®Гў.","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[stream_desc]\" value=\"{$stream_config['stream_desc']}\" size=\"25\">");
+showRow("ГЉГ«ГѕГ·ГҐГўГ»ГҐ Г±Г«Г®ГўГ  (Keywords) Г¤Г«Гї Г¬Г®Г¤ГіГ«Гї","Г‚ГўГҐГ¤ГЁГІГҐ Г·ГҐГ°ГҐГ§ Г§Г ГЇГїГІГіГѕ Г®Г±Г­Г®ГўГ­Г»ГҐ ГЄГ«ГѕГ·ГҐГўГ»ГҐ Г±Г«Г®ГўГ .","<input class=\"edit bk\" type=\"text\" style=\"text-align: center;width: 350px;\" name=\"savecfg[stream_keywords]\" value=\"{$stream_config['stream_keywords']}\" size=\"25\">");
 showRow("","","<input type=\"hidden\" name=\"action\" value=\"saveconfig\">", false);
-showRow("<input type=\"submit\" class=\"btn btn-success\" value=\"Сохранить\">");
+showRow("<input type=\"submit\" class=\"btn btn-success\" value=\"Г‘Г®ГµГ°Г Г­ГЁГІГј\">");
 echo <<<HTML
 		</tbody>
 	</table>
@@ -386,9 +386,9 @@ HTML;
 closetable();
 }
 /*==========================
-Js для ajax получения тайтла
+Js Г¤Г«Гї ajax ГЇГ®Г«ГіГ·ГҐГ­ГЁГї ГІГ Г©ГІГ«Г 
 ----------------------------
-Ajax очистка кеша модуля
+Ajax Г®Г·ГЁГ±ГІГЄГ  ГЄГҐГёГ  Г¬Г®Г¤ГіГ«Гї
 ============================*/
 function js_code(){
 global $lang;
@@ -409,7 +409,7 @@ $(function(){
 		var login = $("#login-stream").val();		
 		
 		if ($.trim(login) == ''){
-			DLEalert("<p>Введите логин стримера или его ID</p>", "Информация");
+			DLEalert("<p>Г‚ГўГҐГ¤ГЁГІГҐ Г«Г®ГЈГЁГ­ Г±ГІГ°ГЁГ¬ГҐГ°Г  ГЁГ«ГЁ ГҐГЈГ® ID</p>", "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї");
 			return false;
 		}
 		ShowLoading('');
@@ -420,7 +420,7 @@ $(function(){
 			data:{login:login, service:service, action:"setTitle"},
 		}).done(function(response){
 			if (response.code == 404 || response.title == false){
-				DLEalert("<p>"+response.status+"</p>", "Ошибка");
+				DLEalert("<p>"+response.status+"</p>", "ГЋГёГЁГЎГЄГ ");
 				return false;
 			}else{
 				if (titles.val() == '' || (titles.val() != response.title)){
@@ -445,7 +445,7 @@ HTML;
 }
 
 /*===============================
-Выводим всю информацию по стриму
+Г‚Г»ГўГ®Г¤ГЁГ¬ ГўГ±Гѕ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ ГЇГ® Г±ГІГ°ГЁГ¬Гі
 ===============================*/
 function getstreaminfo($login) {
 	$login = totranslit($login);
@@ -455,7 +455,7 @@ function getstreaminfo($login) {
 	return $info_stream;
 }
 /*============================================================================
-Получаем json из сервиса с количеством просмотров, какая игра, тайтл TWITCH.TV
+ГЏГ®Г«ГіГ·Г ГҐГ¬ json ГЁГ§ Г±ГҐГ°ГўГЁГ±Г  Г± ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®Г¬ ГЇГ°Г®Г±Г¬Г®ГІГ°Г®Гў, ГЄГ ГЄГ Гї ГЁГЈГ°Г , ГІГ Г©ГІГ« TWITCH.TV
 =============================================================================*/
 function gettwitch($login, $flag = false) {
 	$path = ($flag) ? "channels/" : "streams/";
@@ -464,14 +464,14 @@ function gettwitch($login, $flag = false) {
 	curl_setopt($data, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($data, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($data, CURLOPT_SSL_VERIFYHOST, false);
-	@$stream_twitch = curl_exec($data); // при маленькой скорости инета вылетает Maximum execution time
+	@$stream_twitch = curl_exec($data); // ГЇГ°ГЁ Г¬Г Г«ГҐГ­ГјГЄГ®Г© Г±ГЄГ®Г°Г®Г±ГІГЁ ГЁГ­ГҐГІГ  ГўГ»Г«ГҐГІГ ГҐГІ Maximum execution time
 	$stream_twitch = json_decode($stream_twitch, true);
 	
 	$st = ($flag) ? $stream_twitch : $stream_twitch['stream'];
 	return $st;
 }
 /*==============================================================================
-Получаем json из сервиса с количеством просмотров, какая игра, тайтл CYBERGAME.TV
+ГЏГ®Г«ГіГ·Г ГҐГ¬ json ГЁГ§ Г±ГҐГ°ГўГЁГ±Г  Г± ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®Г¬ ГЇГ°Г®Г±Г¬Г®ГІГ°Г®Гў, ГЄГ ГЄГ Гї ГЁГЈГ°Г , ГІГ Г©ГІГ« CYBERGAME.TV
 ===============================================================================*/
 function getcybergame($login) {
 	$stream_cybergame = file_get_contents('http://api.cybergame.tv/w/streams2.php?channel='.totranslit($login));
@@ -479,16 +479,16 @@ function getcybergame($login) {
 	return $stream_cybergame;
 }
 /*==============================================================================
-Получаем xml из сервиса с количеством просмотров, какая игра, тайтл GOODGAME.RU
+ГЏГ®Г«ГіГ·Г ГҐГ¬ xml ГЁГ§ Г±ГҐГ°ГўГЁГ±Г  Г± ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®Г¬ ГЇГ°Г®Г±Г¬Г®ГІГ°Г®Гў, ГЄГ ГЄГ Гї ГЁГЈГ°Г , ГІГ Г©ГІГ« GOODGAME.RU
 ===============================================================================*/
 function getgoodgame($login) {
 	$stream_goodgame = simplexml_load_file('http://goodgame.ru/api/getchannelstatus?id='.totranslit($login));
 	return $stream_goodgame;
 }
 /*=======================================================
-Чекаем пользователя на существование на сервисе TWITCH.TV
+Г—ГҐГЄГ ГҐГ¬ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гї Г­Г  Г±ГіГ№ГҐГ±ГІГўГ®ГўГ Г­ГЁГҐ Г­Г  Г±ГҐГ°ГўГЁГ±ГҐ TWITCH.TV
 ----------------------------------------------------------
-Если Not Found или 404 отдаем False, в остальных True
+Г…Г±Г«ГЁ Not Found ГЁГ«ГЁ 404 Г®ГІГ¤Г ГҐГ¬ False, Гў Г®Г±ГІГ Г«ГјГ­Г»Гµ True
 =========================================================*/
 function check_twitch($login) {
 	$data = curl_init('https://api.twitch.tv/kraken/channels/'.totranslit($login));
@@ -507,11 +507,11 @@ function check_twitch($login) {
 	}
 }
 /*===================================================
-Получаем json посредством костыля xml для GOODGAME.RU
+ГЏГ®Г«ГіГ·Г ГҐГ¬ json ГЇГ®Г±Г°ГҐГ¤Г±ГІГўГ®Г¬ ГЄГ®Г±ГІГ»Г«Гї xml Г¤Г«Гї GOODGAME.RU
 -----------------------------------------------------
-Шатал разработчиков GG и кто придумал ключем массива
+ГГ ГІГ Г« Г°Г Г§Г°Г ГЎГ®ГІГ·ГЁГЄГ®Гў GG ГЁ ГЄГІГ® ГЇГ°ГЁГ¤ГіГ¬Г Г« ГЄГ«ГѕГ·ГҐГ¬ Г¬Г Г±Г±ГЁГўГ 
 -----------------------------------------------------
-ставить ID канала и отсуствие метода получения id 
+Г±ГІГ ГўГЁГІГј ID ГЄГ Г­Г Г«Г  ГЁ Г®ГІГ±ГіГ±ГІГўГЁГҐ Г¬ГҐГІГ®Г¤Г  ГЇГ®Г«ГіГ·ГҐГ­ГЁГї id 
 ===================================================*/
 function setTitleGG($login){
 	$stream_goodgame = file_get_contents("http://goodgame.ru/api/getchannelstatus?id=".totranslit($login)."&fmt=json");
@@ -521,7 +521,7 @@ function setTitleGG($login){
 	return $stream_goodgame[$id[0]];
 }
 /*======================================================
-Сохранение настроек модуля после нажатия кнопки отправить
+Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ Г­Г Г±ГІГ°Г®ГҐГЄ Г¬Г®Г¤ГіГ«Гї ГЇГ®Г±Г«ГҐ Г­Г Г¦Г ГІГЁГї ГЄГ­Г®ГЇГЄГЁ Г®ГІГЇГ°Г ГўГЁГІГј
 ========================================================*/
 function saveConfig($post, $stream_config){
 	global $lang;
@@ -536,15 +536,15 @@ function saveConfig($post, $stream_config){
     }
 	
     if($file) {
-		streamMsg("Готово", "Конфигурация успешно сохранена.<br /><br /><a href=$PHP_SELF?mod=stream-info&action=settings>{$lang['db_prev']}</a>");
+		streamMsg("ГѓГ®ГІГ®ГўГ®", "ГЉГ®Г­ГґГЁГЈГіГ°Г Г¶ГЁГї ГіГ±ГЇГҐГёГ­Г® Г±Г®ГµГ°Г Г­ГҐГ­Г .<br /><br /><a href=$PHP_SELF?mod=stream-info&action=settings>{$lang['db_prev']}</a>");
 	} else {
-		streamMsg("Ошибка", "Не удалось записать конфиг в файл.<br /><br /><a href={$PHP_SELF}?mod=stream-info&action=settings>{$lang['db_prev']}</a>");
+		streamMsg("ГЋГёГЁГЎГЄГ ", "ГЌГҐ ГіГ¤Г Г«Г®Г±Гј Г§Г ГЇГЁГ±Г ГІГј ГЄГ®Г­ГґГЁГЈ Гў ГґГ Г©Г«.<br /><br /><a href={$PHP_SELF}?mod=stream-info&action=settings>{$lang['db_prev']}</a>");
 	}
 	die();
 }
 /*=====================================
-Конверт кодировки с windows в utf ибо
-ajax работает только в UTF-8 цука =/
+ГЉГ®Г­ГўГҐГ°ГІ ГЄГ®Г¤ГЁГ°Г®ГўГЄГЁ Г± windows Гў utf ГЁГЎГ®
+ajax Г°Г ГЎГ®ГІГ ГҐГІ ГІГ®Г«ГјГЄГ® Гў UTF-8 Г¶ГіГЄГ  =/
 ======================================*/
 function inv($str){
 	if (function_exists('iconv')){
@@ -553,13 +553,13 @@ function inv($str){
 	return $str;
 }
 /*==================================================
-Подсчет размера определенных *.tmp файлов,
-задается как массив array('file1', 'file2', 'file3')
+ГЏГ®Г¤Г±Г·ГҐГІ Г°Г Г§Г¬ГҐГ°Г  Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г­Г»Гµ *.tmp ГґГ Г©Г«Г®Гў,
+Г§Г Г¤Г ГҐГІГ±Гї ГЄГ ГЄ Г¬Г Г±Г±ГЁГў array('file1', 'file2', 'file3')
 ===================================================*/
 function calc_cache($caches = array()){
 	$sum = array();
 	foreach($caches as $cache){
 			$sum[] = filesize(ENGINE_DIR . "/cache/{$cache}.tmp");
 	}
-	return round(array_sum($sum) / 1024, 2). " Кб";
+	return round(array_sum($sum) / 1024, 2). " ГЉГЎ";
 }
