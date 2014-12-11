@@ -9,9 +9,9 @@ $stream_config = array (
   'height' => '480',
   'online' => 'Online',
   'offline' => 'Offline',
-  'zagluska' => 'ѕользователь не стриммит в данный момент',
-  'stream_title' => '“рансл€ции',
-  'stream_desc' => '«десь можно посмотреть трансл€ции',
-  'stream_keywords' => 'стримы, трансл€ции',
+  'zagluska' => 'Њользователь не стриммит в данный момент',
+  'stream_title' => 'Урансл§ции',
+  'stream_desc' => 'Ђдесь можно посмотреть трансл§ции',
+  'stream_keywords' => 'стримы, трансл§ции',
 );
 ?>
