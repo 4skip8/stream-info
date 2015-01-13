@@ -91,7 +91,7 @@ require_once ENGINE_DIR.\'/modules/stream-info-main.php\';
 $tpl->set ( \'{speedbar}\', $tpl->result[\'speedbar\'] );
 
 4.1 Âñòàâèòü:
-if( $tpl->result[\'streams\'] != \"\" && $do != \"stream-info\") {
+if( $tpl->result[\'streams\'] != "" && $do != "stream-info") {
     $tpl->set ( \'[stream-info]\', "" );
     $tpl->set ( \'{stream-info}\', $tpl->result[\'streams\'] );
     $tpl->set ( \'[/stream-info]\', "" );

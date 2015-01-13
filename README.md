@@ -52,7 +52,7 @@ $tpl->set ( '{speedbar}', $tpl->result['speedbar'] );
 ```
 Вставить:
 ```php
-if( $tpl->result['streams'] != "" && $do != 'stream-info') {
+if( $tpl->result['streams'] != "" && $do != "stream-info") {
     $tpl->set ( '[stream-info]', "" );
     $tpl->set ( '{stream-info}', $tpl->result['streams'] );
     $tpl->set ( '[/stream-info]', "" );
