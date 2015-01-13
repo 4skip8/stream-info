@@ -14,11 +14,11 @@
 ----------------------------------------------------------
  Copyright (c) 2014
 ==========================================================
- Данный код защищен авторскими правами
+ Г„Г Г­Г­Г»Г© ГЄГ®Г¤ Г§Г Г№ГЁГ№ГҐГ­ Г ГўГІГ®Г°Г±ГЄГЁГ¬ГЁ ГЇГ°Г ГўГ Г¬ГЁ
 ==========================================================
- Файл: stream-install.php
+ Г”Г Г©Г«: stream-install.php
 ----------------------------------------------------------
- Назначение: Установщик модуля
+ ГЌГ Г§Г­Г Г·ГҐГ­ГЁГҐ: Г“Г±ГІГ Г­Г®ГўГ№ГЁГЄ Г¬Г®Г¤ГіГ«Гї
 ==========================================================*/
 
 @error_reporting ( E_ALL ^ E_WARNING ^ E_NOTICE );
@@ -36,7 +36,7 @@ require_once(ENGINE_DIR. '/inc/include/init.php');
 require_once(ENGINE_DIR. '/inc/stream-info.fnc.php');
 
 /*===================================
-	Функции для вызова шаблона
+	Г”ГіГ­ГЄГ¶ГЁГЁ Г¤Г«Гї ГўГ»Г§Г®ГўГ  ГёГ ГЎГ«Г®Г­Г 
 ===================================*/
 function openhtml($title) {
 	echo<<<HTML
@@ -51,7 +51,7 @@ function openhtml($title) {
 <body>
 	<header>
 		<div class="header-content">
-			<h1>Установка модуля STREAM-INFO</h1>
+			<h1>Г“Г±ГІГ Г­Г®ГўГЄГ  Г¬Г®Г¤ГіГ«Гї STREAM-INFO</h1>
 		</div>
 	</header>
 	<section class="content">
@@ -65,33 +65,33 @@ function closehtml() {
 HTML;
 }
 
-$code = '1. В engine/engine.php после:
+$code = '1. Г‚ engine/engine.php ГЇГ®Г±Г«ГҐ:
 case "pm" :
 	include ENGINE_DIR . \'/modules/pm.php\';
 	break;
 
-1.1 Вставить:
+1.1 Г‚Г±ГІГ ГўГЁГІГј:
 case "stream-info" :
 	include ENGINE_DIR.\'/modules/stream-info.php\';
 	break;
 	
-2. В engine/engine.php после:
+2. Г‚ engine/engine.php ГЇГ®Г±Г«ГҐ:
 elseif ($do == \'tags\') $nam_e = stripslashes($tag);
 
-2.1 Вставить:
+2.1 Г‚Г±ГІГ ГўГЁГІГј:
 elseif ($do == \'stream-info\') $nam_e = $stream_tpage;
 
-3. В index.php после:
+3. Г‚ index.php ГЇГ®Г±Г«ГҐ:
 require_once ROOT_DIR . \'/engine/init.php\';
 
-3.1 Вставить:
+3.1 Г‚Г±ГІГ ГўГЁГІГј:
 require_once ENGINE_DIR.\'/modules/stream-info-main.php\';
 
-4. В index.php после:
+4. Г‚ index.php ГЇГ®Г±Г«ГҐ:
 $tpl->set ( \'{speedbar}\', $tpl->result[\'speedbar\'] );
 
-4.1 Вставить:
-if( $tpl->result[\'streams\'] != "" && $do != \"stream-info\") {
+4.1 Г‚Г±ГІГ ГўГЁГІГј:
+if( $tpl->result[\'streams\'] != \"\" && $do != \"stream-info\") {
     $tpl->set ( \'[stream-info]\', "" );
     $tpl->set ( \'{stream-info}\', $tpl->result[\'streams\'] );
     $tpl->set ( \'[/stream-info]\', "" );
@@ -99,45 +99,45 @@ if( $tpl->result[\'streams\'] != "" && $do != \"stream-info\") {
     $tpl->set_block ( "\'\\[stream-info\\](.*?)\\[/stream-info\\]\'si", "" );
 }
 
-5.Чтобы использовать ЧПУ в модуле Stream-Info, в файле ".htaccess" после:
+5.Г—ГІГ®ГЎГ» ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г—ГЏГ“ Гў Г¬Г®Г¤ГіГ«ГҐ Stream-Info, Гў ГґГ Г©Г«ГҐ ".htaccess" ГЇГ®Г±Г«ГҐ:
 RewriteRule ^page/([0-9]+)(/?)$ index.php?cstart=$1 [L]
 
-5.1 Вставить:
+5.1 Г‚Г±ГІГ ГўГЁГІГј:
 # Stream-Info
 RewriteRule ^stream(/?)+$ index.php?do=stream-info [L]
 RewriteRule ^stream/([^/]*)(/?)+$ index.php?do=stream-info&stream=$1 [L]';
 
 /*===================================
-		Сама установка
+		Г‘Г Г¬Г  ГіГ±ГІГ Г­Г®ГўГЄГ 
 ===================================*/
-## Проверка установки
+## ГЏГ°Г®ГўГҐГ°ГЄГ  ГіГ±ГІГ Г­Г®ГўГЄГЁ
 
 if(file_exists(ENGINE_DIR. '/data/stream_config.php')) {
-	openhtml("Модуль уже установлен");
+	openhtml("ГЊГ®Г¤ГіГ«Гј ГіГ¦ГҐ ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­");
 echo<<<HTML
-		<h1>Ошибка</h1>
-		<p>Модуль уже установлен.</p>
-		<p>Если вы совершаете переустановку, удалите файл <b>stream_config.php</b>.</p>
+		<h1>ГЋГёГЁГЎГЄГ </h1>
+		<p>ГЊГ®Г¤ГіГ«Гј ГіГ¦ГҐ ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­.</p>
+		<p>Г…Г±Г«ГЁ ГўГ» Г±Г®ГўГҐГ°ГёГ ГҐГІГҐ ГЇГҐГ°ГҐГіГ±ГІГ Г­Г®ГўГЄГі, ГіГ¤Г Г«ГЁГІГҐ ГґГ Г©Г« <b>stream_config.php</b>.</p>
 HTML;
 	closehtml();
 	exit();
 }
-## Проверка авторизации и группы
+## ГЏГ°Г®ГўГҐГ°ГЄГ  Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГЁ ГЁ ГЈГ°ГіГЇГЇГ»
 if(!$_COOKIE['dle_user_id']) {
-	openhtml("Ошибка");
+	openhtml("ГЋГёГЁГЎГЄГ ");
 	echo<<<HTML
-		<h1>Ошибка</h1>
-		<p>Для установки вам необходимо быть авторизованным!</p>
+		<h1>ГЋГёГЁГЎГЄГ </h1>
+		<p>Г„Г«Гї ГіГ±ГІГ Г­Г®ГўГЄГЁ ГўГ Г¬ Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® ГЎГ»ГІГј Г ГўГІГ®Г°ГЁГ§Г®ГўГ Г­Г­Г»Г¬!</p>
 HTML;
 	closehtml();
 	exit();
 } else {
 	$user = $dle_api->take_user_by_id($_COOKIE['dle_user_id']);
 	if($user['user_group'] != "1") {
-		openhtml("Ошибка");
+		openhtml("ГЋГёГЁГЎГЄГ ");
 		echo<<<HTML
-		<h1>Ошибка</h1>
-		<p>Доступно только для администратора.</p>
+		<h1>ГЋГёГЁГЎГЄГ </h1>
+		<p>Г„Г®Г±ГІГіГЇГ­Г® ГІГ®Г«ГјГЄГ® Г¤Г«Гї Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г .</p>
 HTML;
 		closehtml();
 		exit();
@@ -163,55 +163,55 @@ if($_SESSION['sinstall']) {
 ) ENGINE=MyISAM /*!40101 DEFAULT CHARACTER SET " . COLLATE . " COLLATE " . COLLATE . "_general_ci */ AUTO_INCREMENT=1 ;";
 }
 		$installdb = $db->query($table);
-		$installadm = $dle_api->install_admin_module('stream-info', 'Stream-Info', 'Вывод прямых трансляций на сайт.', 'stream-info.png', 1);
+		$installadm = $dle_api->install_admin_module('stream-info', 'Stream-Info', 'Г‚Г»ГўГ®Г¤ ГЇГ°ГїГ¬Г»Гµ ГІГ°Г Г­Г±Г«ГїГ¶ГЁГ© Г­Г  Г±Г Г©ГІ.', 'stream-info.png', 1);
 		$installdb = true;
 		$installadm = true;
 		if(!$installdb OR !$installadm) {
-			openhtml("Ошибка");
+			openhtml("ГЋГёГЁГЎГЄГ ");
 			echo<<<HTML
 		<form action="" method="POST">
-			<h1>Ошибка</h1>
-			<p>Не удалось установить модуль. Проблема при загрузке таблицы в БД.</p>
+			<h1>ГЋГёГЁГЎГЄГ </h1>
+			<p>ГЌГҐ ГіГ¤Г Г«Г®Г±Гј ГіГ±ГІГ Г­Г®ГўГЁГІГј Г¬Г®Г¤ГіГ«Гј. ГЏГ°Г®ГЎГ«ГҐГ¬Г  ГЇГ°ГЁ Г§Г ГЈГ°ГіГ§ГЄГҐ ГІГ ГЎГ«ГЁГ¶Г» Гў ГЃГ„.</p>
 			<input type="hidden" name="action" value="">
-			<div align="center"><br /><input type="submit" class="submit-input" value="В начало"></div>
+			<div align="center"><br /><input type="submit" class="submit-input" value="Г‚ Г­Г Г·Г Г«Г®"></div>
 		</form>
 HTML;
 			closehtml();
 			exit();
 		}
 		
-		openhtml("Установка модуля");
+		openhtml("Г“Г±ГІГ Г­Г®ГўГЄГ  Г¬Г®Г¤ГіГ«Гї");
 		echo<<<HTML
 		<form action="" method="POST">
-			<h1>БД и ПУ</h1>
-			<p>v Таблица в БД создана</p>
-			<p>v Модуль добавлен в ПУ</p>
+			<h1>ГЃГ„ ГЁ ГЏГ“</h1>
+			<p>v Г’Г ГЎГ«ГЁГ¶Г  Гў ГЃГ„ Г±Г®Г§Г¤Г Г­Г </p>
+			<p>v ГЊГ®Г¤ГіГ«Гј Г¤Г®ГЎГ ГўГ«ГҐГ­ Гў ГЏГ“</p>
 			<input type="hidden" name="action" value="components">
-			<div align="center"><br /><input type="submit" class="submit-input" value="Далее"></div>
+			<div align="center"><br /><input type="submit" class="submit-input" value="Г„Г Г«ГҐГҐ"></div>
 		</form>
 HTML;
 		closehtml();
 		exit();
 	} elseif($action == 'components') {
-		openhtml("Добавление кода в DLE");
+		openhtml("Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЄГ®Г¤Г  Гў DLE");
 		echo<<<HTML
 		<form action="" method="POST">
-			<h1>Подключение компонентов</h1>
+			<h1>ГЏГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГҐ ГЄГ®Г¬ГЇГ®Г­ГҐГ­ГІГ®Гў</h1>
 			<textarea class="textarea-class" disabled>{$code}</textarea>
 			<input type="hidden" name="action" value="end">
-			<div align="center"><br /><input type="submit" class="submit-input" value="Далее"></div>
+			<div align="center"><br /><input type="submit" class="submit-input" value="Г„Г Г«ГҐГҐ"></div>
 		</form>
 HTML;
 		closehtml();
 		exit();
 	} elseif($action == 'end') {
-		openhtml("Установка завершена");
+		openhtml("Г“Г±ГІГ Г­Г®ГўГЄГ  Г§Г ГўГҐГ°ГёГҐГ­Г ");
 		echo<<<HTML
-		<h1>Установка завершена</h1>
-		<p>Модуль успешно установлен!</p>
+		<h1>Г“Г±ГІГ Г­Г®ГўГЄГ  Г§Г ГўГҐГ°ГёГҐГ­Г </h1>
+		<p>ГЊГ®Г¤ГіГ«Гј ГіГ±ГЇГҐГёГ­Г® ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­!</p>
 		<form action="" method="POST">
 			<input type="hidden" name="action" value="delete">
-			<input type="submit" class="submit-input" value="Удалить установщик">
+			<input type="submit" class="submit-input" value="Г“Г¤Г Г«ГЁГІГј ГіГ±ГІГ Г­Г®ГўГ№ГЁГЄ">
 		</form>		
 HTML;
 		closehtml();
@@ -227,20 +227,20 @@ HTML;
 		$config['height'] = "480";
 		$config['online'] = "Online";
 		$config['offline'] = "Offline";
-		$config['zagluska'] = "Пользователь не стриммит в данный момент";
-		$config['stream_title'] = "Трансляции by MaD";
-		$config['stream_desc'] = "Здесь можно посмотреть трансляции";
-		$config['stream_keywords'] = "трансляции, by mad";
+		$config['zagluska'] = "ГЏГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гј Г­ГҐ Г±ГІГ°ГЁГ¬Г¬ГЁГІ Гў Г¤Г Г­Г­Г»Г© Г¬Г®Г¬ГҐГ­ГІ";
+		$config['stream_title'] = "Г’Г°Г Г­Г±Г«ГїГ¶ГЁГЁ by MaD";
+		$config['stream_desc'] = "Г‡Г¤ГҐГ±Гј Г¬Г®Г¦Г­Г® ГЇГ®Г±Г¬Г®ГІГ°ГҐГІГј ГІГ°Г Г­Г±Г«ГїГ¶ГЁГЁ";
+		$config['stream_keywords'] = "ГІГ°Г Г­Г±Г«ГїГ¶ГЁГЁ, by mad";
 		$contents = "<?php\n \$stream_config = " . var_export( $config, true ) . ";\n?>";
 		@fwrite($cfg, $contents);
 		@fclose($cfg);
 		exit();
 	}elseif($action == 'delete'){
 	unlink('stream-install.php');
-	openhtml("Установка завершена");
+	openhtml("Г“Г±ГІГ Г­Г®ГўГЄГ  Г§Г ГўГҐГ°ГёГҐГ­Г ");
 	echo <<<HTML
-	<h1>Конец</h1>
-	<p>Установщик удален</p>
+	<h1>ГЉГ®Г­ГҐГ¶</h1>
+	<p>Г“Г±ГІГ Г­Г®ГўГ№ГЁГЄ ГіГ¤Г Г«ГҐГ­</p>
 HTML;
 	closehtml();
 	exit();
@@ -248,14 +248,14 @@ HTML;
 }
 
 $_SESSION['sinstall'] = TRUE;
-openhtml("Установка модуля STREAM-INFO");
+openhtml("Г“Г±ГІГ Г­Г®ГўГЄГ  Г¬Г®Г¤ГіГ«Гї STREAM-INFO");
 echo<<<HTML
 <form action="" method="POST">
-	<h1>Установка</h1>
-	<p>Нажмите на кнопку далее для начала установки модуля.</p>
+	<h1>Г“Г±ГІГ Г­Г®ГўГЄГ </h1>
+	<p>ГЌГ Г¦Г¬ГЁГІГҐ Г­Г  ГЄГ­Г®ГЇГЄГі Г¤Г Г«ГҐГҐ Г¤Г«Гї Г­Г Г·Г Г«Г  ГіГ±ГІГ Г­Г®ГўГЄГЁ Г¬Г®Г¤ГіГ«Гї.</p>
 	<p>
 	<input type="hidden" name="action" value="install">
-	<input type="submit" class="submit-input" value="Далее">
+	<input type="submit" class="submit-input" value="Г„Г Г«ГҐГҐ">
 	</p>
 </form>
 HTML;
