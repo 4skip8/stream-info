@@ -12,7 +12,7 @@ OLD AUTHOR: ksyd
 icq: 360486149
 skype: tlt.pavel-sergeevich
 -----------------------------------------------------
-Copyright (c) 2014
+Copyright (c) 2015
 =====================================================
 Данный код защищен авторскими правами
 =====================================================
@@ -33,32 +33,32 @@ function echomenu()
   <div class="box-content">
     <div class="row box-section">
         <div class="action-nav-normal action-nav-line" style="width: 780px;margin: 0 auto;">
-          <div class="row action-nav-row">
+          <div class="row action-nav-row">            
             <div class="col-sm-1 action-nav-button" style="width: 180px;">
               <a href="?mod=stream-info" class="tip" title="" data-original-title="Общая информация по модулю. Техническая информация, разработчики.">
                 <i class="icon-bar-chart"></i>
                 <span>Общая информация</span>
               </a>
-            </div>
+            </div>            
             <div class="col-sm-1 action-nav-button" style="width: 200px;">
               <a href="?mod=stream-info&action=add" class="tip" title="" data-original-title="Раздел для добавления новой трансляции на сайт.">
                 <i class="icon-plus"></i>
                 <span>Добавить трансляцию</span>
               </a>
-            </div>
+            </div>          
             <div class="col-sm-1 action-nav-button" style="width: 220px;">
               <a href="?mod=stream-info&action=edit" class="tip" title="" data-original-title="Редактивание как отдельной, так и всего списка трансляций. Удаление массовое.">
                 <i class="icon-edit"></i>
                 <span>Редактирование трансляций</span>
               </a>
-            </div>
+            </div>            
             <div class="col-sm-1 action-nav-button" style="width: 180px;">
               <a href="?mod=stream-info&action=settings" class="tip" title="" data-original-title="Выключение модуля, выключение кеша, размеры плеера, заглушки. Настройка всего модуля">
                 <i class="icon-cog"></i>
                 <span>Настройка модуля</span>
               </a>
-            </div>
-          </div>
+            </div>    
+          </div>    
         </div>
      </div>
    </div>
@@ -111,10 +111,10 @@ function CheckBox($name, $selected)
 Генерация всего списка стримов которые есть в бд
 ===============================================*/
 function streamList($streams)
-{
+{	
+	echo '<form action="" method="POST">';
     opentable("Список трансляций");
     echo <<<HTML
-<form action="" method="POST">
 <table class="table table-normal table-hover">
 <thead>
 <tr style="text-align: center;">
@@ -142,7 +142,7 @@ HTML;
     echo "</tbody>
 </table>
 </div>";
-
+    
     if ($_REQUEST['action'] == 'edit') {
         echo <<<HTML
 <div class="box-footer padded">
@@ -154,12 +154,15 @@ HTML;
             </select>
             &nbsp;<input class="btn btn-gold" type="submit" value="Выполнить">
           </div>
+		  </form>
 </div>
 HTML;
     }
-    echo "</form>
-    <div class=\"box-footer padded\"></div>
-    </div>";
+    echo <<<HTML
+    <div class="box-footer padded"></div>
+    </div>
+HTML;
+echo '</form>';
 }
 /*==========================
 jQuery для ajax обработки
@@ -182,8 +185,8 @@ $(function(){
     $('#set_title').on('click', function(){
         var titles = $("#title-stream");
         var service = $(".chosen-select option:selected").val();
-        var login = $("#login-stream").val();
-
+        var login = $("#login-stream").val();        
+        
         if ($.trim(login) == ''){
             DLEalert("<p>Введите логин стримера или его ID</p>", "Информация");
             return false;
@@ -239,14 +242,14 @@ function gettwitch($login, $flag = false)
 {
     $path = ($flag) ? "channels/" : "streams/";
     $data = curl_init('https://api.twitch.tv/kraken/' . $path . totranslit($login));
-
+    
     curl_setopt($data, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($data, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($data, CURLOPT_SSL_VERIFYHOST, false);
 
     $stream_twitch = @curl_exec($data); // при маленькой скорости инета вылетает Maximum execution time
     $stream_twitch = json_decode($stream_twitch, true);
-
+    
     $st = ($flag) ? $stream_twitch : $stream_twitch['stream'];
     curl_close($data);
     return $st;
@@ -276,11 +279,11 @@ function getgoodgame($login)
 function check_twitch($login)
 {
     $data = curl_init('https://api.twitch.tv/kraken/channels/' . totranslit($login));
-
+    
     curl_setopt($data, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($data, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($data, CURLOPT_SSL_VERIFYHOST, false);
-
+    
     $result = curl_exec($data);
     $result = json_decode($result, true);
     curl_close($data);
@@ -297,7 +300,7 @@ function check_twitch($login)
 -----------------------------------------------------
 Шатал разработчиков GG и кто придумал ключем массива
 -----------------------------------------------------
-ставить ID канала и отсуствие метода получения id
+ставить ID канала и отсуствие метода получения id 
 ===================================================*/
 function setTitleGG($login)
 {
@@ -322,19 +325,19 @@ function saveCfg($savecfg, $stream_config)
     $savecfg['height'] = intval($savecfg['height']);
 
     $savecfg = $savecfg + $stream_config;
-
+    
     $filecfg = fopen( ENGINE_DIR . '/data/stream_config.php', "w+" );
-
+    
     fwrite( $filecfg, "<?php \n//Stream\n\$stream_config = array (\n" );
     foreach ( $savecfg as $name => $value ) {
-
+                
         $value = str_replace( "$", "&#036;", $value );
         $value = str_replace( "{", "&#123;", $value );
         $value = str_replace( "}", "&#125;", $value );
         $value = str_replace( chr(0), "", $value );
         $value = str_replace( chr(92), "", $value );
         $value = str_ireplace( "base64_decode", "base64_dec&#111;de", $value );
-
+        
         $name = str_replace( "$", "&#036;", $name );
         $name = str_replace( "{", "&#123;", $name );
         $name = str_replace( "}", "&#125;", $name );
@@ -343,9 +346,9 @@ function saveCfg($savecfg, $stream_config)
         $name = str_replace( '(', "", $name );
         $name = str_replace( ')', "", $name );
         $name = str_ireplace( "base64_decode", "base64_dec&#111;de", $name );
-
+        
         fwrite( $filecfg, "'{$name}' => '{$value}',\n" );
-
+    
     }
     fwrite( $filecfg, ");\n?>" );
     fclose( $filecfg );

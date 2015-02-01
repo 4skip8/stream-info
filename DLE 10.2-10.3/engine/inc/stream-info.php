@@ -12,7 +12,7 @@ OLD AUTHOR: ksyd
 icq: 360486149
 skype: tlt.pavel-sergeevich
 -----------------------------------------------------
-Copyright (c) 2014
+Copyright (c) 2015
 =====================================================
 Данный код защищен авторскими правами
 =====================================================
@@ -354,19 +354,20 @@ HTML;
     } else {
         msg("error", "Ошибка", "Не удалось записать изменения в базу данных.", "?mod=stream-info&action=edit");
     }
-    die();
+    
 } elseif ($act == 'dodelete') {
     /*===========================
     Удаление трансляций
     ===========================*/
-    $ids     = $_POST['selected_stream'];
+	$ids     = $_POST['selected_stream'];
     $deleted = 0;
+	print_r($ids);
     foreach ($ids as $id) {
         $db->query("DELETE FROM " . PREFIX . "_streams WHERE id= '" . intval($id) . "'");
         $deleted++;
     }
     msg("info", "Готово", $deleted . " транслии(ий) удалено.", "?mod=stream-info&action=edit");
-	die();
+	
 } elseif ($act == 'savesettings') {
 
 saveCfg($_POST['savecfg'], $stream_config);

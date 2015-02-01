@@ -293,7 +293,7 @@ closetable();
 ===========================*/
 	$id = (int)$_REQUEST['id'];
 	
-if(isset($id) && !empty($id)) {
+	if(isset($id) && !empty($id)) {
 		$stream = $db->super_query("SELECT id, title, service, login, description, pic, date   FROM ".PREFIX."_streams WHERE id = '".$id."'");
 		echomenu();
 		opentable();
