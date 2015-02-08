@@ -96,7 +96,7 @@ if( $tpl->result[\'streams\'] != "" && $do != "stream-info") {
     $tpl->set ( \'{stream-info}\', $tpl->result[\'streams\'] );
     $tpl->set ( \'[/stream-info]\', "" );
 } else {
-    $tpl->set_block ( "\'\\[stream-info\\](.*?)\\[/stream-info\\]\'si", "" );
+    $tpl->set_block ( "\'\\\[stream-info\\\](.*?)\\\[/stream-info\\\]\\\\\'si", "" );
 }
 
 5.Чтобы использовать ЧПУ в модуле Stream-Info, в файле ".htaccess" после:
@@ -105,7 +105,9 @@ RewriteRule ^page/([0-9]+)(/?)$ index.php?cstart=$1 [L]
 5.1 Вставить:
 # Stream-Info
 RewriteRule ^stream(/?)+$ index.php?do=stream-info [L]
-RewriteRule ^stream/([^/]*)(/?)+$ index.php?do=stream-info&stream=$1 [L]';
+RewriteRule ^stream/([^/]*)(/?)+$ index.php?do=stream-info&stream=$1 [L]
+
+6. Теги [stream-info]{stream-info}[/stream-info] нужно вставить в любое место в main.tpl';
 
 /*===================================
 		Сама установка
